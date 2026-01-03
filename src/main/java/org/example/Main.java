@@ -28,6 +28,7 @@ private static int menuPrincipal(){
          switch(opcion){
              case 1:mostrarEstado();
              case 2: Comer();
+             case 3: Jugar();
          }
 
 
@@ -74,8 +75,30 @@ private static void  Comer(){
                 energia=10;
             }
 
-    }if (diversion>=1){
+    }else{
+        System.out.println("NO TENGO HAMBRE");
+    }
+
+    if (diversion>=1){
         diversion=diversion-1;
     }
     System.out.println("LA ENERGIA ES " +energia +" LA DIVERSION HA DISMINUIDO A "+diversion);
+}
+private static void Jugar(){
+
+    if (diversion<10){
+       diversion=diversion+3;
+        if (diversion>10){
+            diversion=10;
+        }
+    }else {
+        System.out.println("AHORA NO ME APETEE JUGAR");
+    }
+    if (saciedad>=1){
+        saciedad=saciedad-1;
+    }
+    if (energia>=1){
+        energia=energia-1;
+    }
+    System.out.println("LA DIVERSIÓN ES " + diversion +" LA ENERGIA ES " +energia+ " LA SACIEDAD HA DISMINUIDO A "+saciedad);
 }
