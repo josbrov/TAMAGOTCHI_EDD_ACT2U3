@@ -19,7 +19,7 @@ static String menu=("1. Estado\n" +
 
 
 private static int menuPrincipal(){
-
+    boolean outMenu=false;
     Scanner lector = new Scanner(System.in);
     int opcion;
     do{
@@ -27,8 +27,15 @@ private static int menuPrincipal(){
          opcion=lector.nextInt();
          switch(opcion){
              case 1:mostrarEstado();
+             break;
              case 2: Comer();
+             break;
              case 3: Jugar();
+             break;
+             case 4: Dormir();
+             case 0:outMenu=true;
+                 System.out.println("HAS SALIDO DEL MENÚ");
+                 break;
          }
 
 
@@ -38,7 +45,7 @@ private static int menuPrincipal(){
            opcion=lector.nextInt();
        }
        return opcion;
-    }while (opcion>=0&&opcion<5);
+    }while (!outMenu);
 
 }
 
@@ -101,4 +108,22 @@ private static void Jugar(){
         energia=energia-1;
     }
     System.out.println("LA DIVERSIÓN ES " + diversion +" LA ENERGIA ES " +energia+ " LA SACIEDAD HA DISMINUIDO A "+saciedad);
+}
+
+public static void Dormir(){
+    if (energia<10){
+        energia=energia+3;
+        if (energia>10){
+            energia=10;
+        }else{
+            System.out.println("NO TENGO SUEÑO");
+        }
+    }
+    if (diversion>=1){
+        diversion=diversion-2;
+    }
+    if (saciedad>=1){
+        saciedad=saciedad-3;
+    }
+    System.out.println("LA ENERGÍA ES " + energia +" LA DIVERSION ES " +diversion+ " LA SACIEDAD HA DISMINUIDO A "+saciedad);
 }
