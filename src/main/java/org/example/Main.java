@@ -94,7 +94,7 @@ private static void  Comer(){
 private static void Jugar(){
 
     if (diversion<10){
-       diversion=diversion+3;
+       diversion=diversion+1;
         if (diversion>10){
             diversion=10;
         }
@@ -112,7 +112,7 @@ private static void Jugar(){
 
 public static void Dormir(){
     if (energia<10){
-        energia=energia+3;
+        energia=energia+2;
         if (energia>10){
             energia=10;
         }else{
@@ -120,10 +120,11 @@ public static void Dormir(){
         }
     }
     if (diversion>=1){
-        diversion=diversion-2;
+        diversion=diversion-1;
     }
     if (saciedad>=1){
-        saciedad=saciedad-3;
+        saciedad=saciedad-1;
     }
     System.out.println("LA ENERGÍA ES " + energia +" LA DIVERSION ES " +diversion+ " LA SACIEDAD HA DISMINUIDO A "+saciedad);
 }
+
