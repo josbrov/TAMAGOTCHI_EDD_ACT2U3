@@ -1,0 +1,7 @@
+#.gradle (tengo entendido que los archivos que empiezan por . generalmente son caches y elementos del IDE
+.gradle/
+#.idea
+.idea/
+#build (elementos del compilador)
+build/
+
