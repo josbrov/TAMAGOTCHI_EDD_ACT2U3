@@ -1,53 +1,68 @@
 import java.util.Scanner;
-static int saciedad=6;
-static int energia=6;
-static int diversion=6;
+static int saciedad=10;
+static int energia=10;
+static int diversion=10
+        ;
+static Scanner lector = new Scanner(System.in);
 public static void main(String[] args) {
 
-    System.out.println("HOLA GIT");
-    menuPrincipal();
+    boolean outMenu = false;
 
+    do{
+        int opcion = menuPrincipal();
 
+        switch(opcion){
+            case 1:
+                mostrarEstado();
+                break;
+            case 2:
+                Comer();
+                break;
+            case 3:
+                Jugar();
+                break;
+            case 4:
+                Dormir();
+                break;
+            case 5:
+                Evo();
+                break;
+            case 0:
+                outMenu = true;
+                System.out.println("HAS SALIDO DEL MENÚ");
+                break;
+        }
+
+    }while(!outMenu);
 }
+
 static String menu=("1. Estado\n" +
         "2. Comer\n" +
         "3. Jugar\n" +
         "4. Dormir\n" +
+        "5. Evolucionar\n" +
         "----------------\n" +
         "0. Salir\n" +
         "Seleccione una opcion del menu:");
 
 
 private static int menuPrincipal(){
-    boolean outMenu=false;
-    Scanner lector = new Scanner(System.in);
     int opcion;
+
     do{
         System.out.println(menu);
-         opcion=lector.nextInt();
-         switch(opcion){
-             case 1:mostrarEstado();
-             break;
-             case 2: Comer();
-             break;
-             case 3: Jugar();
-             break;
-             case 4: Dormir();
-             case 0:outMenu=true;
-                 System.out.println("HAS SALIDO DEL MENÚ");
-                 break;
-         }
+        opcion = lector.nextInt();
 
+        if(opcion < 0 || opcion > 5){
+            System.out.println("NO VALIDO PRUEBA DE NUEVO ");
+        }
 
-       while(opcion<0||opcion>4){
-           System.out.println("NO VALIDO PRUEBA DE NUEVO ");
-           System.out.println(menu);
-           opcion=lector.nextInt();
-       }
-       return opcion;
-    }while (!outMenu);
+    }while(opcion < 0 || opcion > 5);
 
+    return opcion;
 }
+
+
 
 private static void mostrarEstado() {
     //1 el caso del game over para que se cumplanm los demas
@@ -126,5 +141,28 @@ public static void Dormir(){
         saciedad=saciedad-1;
     }
     System.out.println("LA ENERGÍA ES " + energia +" LA DIVERSION ES " +diversion+ " LA SACIEDAD HA DISMINUIDO A "+saciedad);
+}
+public static void Evo(){
+    int seleccEvo;
+    if (energia==10&&diversion==10&&saciedad==10) {
+
+        System.out.println("TU TAMAGOTCHI PUEDE EVOLUCIONAR.¿DESEAS EVOLUCIONARLO?\n" +
+                "1.SI\n" +
+                "2.NO");
+        seleccEvo=lector.nextInt();
+        if (seleccEvo==1){
+            System.out.println("TU TAMAGOTCHI HA EVOLUCIONADO\n" +
+                    "  __\n" +
+                    " (oo)\n" +
+                    " /||\\\n" +
+                    "  ||\n" +
+                    "  /\\\n");
+        }else if(seleccEvo==2){
+            System.out.println("TU TAMAGOTCHI NO HA EVOLUCIONADO");
+        }
+
+    }else{
+        System.out.println("NO CUMPLES LOS REQUISITOS");
+    }
 }
 
