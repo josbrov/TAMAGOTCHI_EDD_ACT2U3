@@ -1,12 +1,12 @@
 import java.util.Scanner;
 static int saciedad=6;
 static int energia=6;
-static int diversion=6;
+static int diversion=1;
 public static void main(String[] args) {
 
     System.out.println("HOLA GIT");
     menuPrincipal();
-    mostrarEstado();
+
 
 }
 static String menu=("1. Estado\n" +
@@ -19,11 +19,18 @@ static String menu=("1. Estado\n" +
 
 
 private static int menuPrincipal(){
-    System.out.println(menu);
+
     Scanner lector = new Scanner(System.in);
-    int opcion=lector.nextInt();
+    int opcion;
     do{
         System.out.println(menu);
+         opcion=lector.nextInt();
+         switch(opcion){
+             case 1:mostrarEstado();
+             case 2: Comer();
+         }
+
+
        while(opcion<0||opcion>4){
            System.out.println("NO VALIDO PRUEBA DE NUEVO ");
            System.out.println(menu);
@@ -58,4 +65,17 @@ if(saciedad==0||energia==0||diversion==0){
             "/|x|\\\n" +
             "| |");
 }
+}
+
+private static void  Comer(){
+    if (energia<10){
+        energia=energia+5;
+            if (energia>10){
+                energia=10;
+            }
+
+    }if (diversion>=1){
+        diversion=diversion-1;
+    }
+    System.out.println("LA ENERGIA ES " +energia +" LA DIVERSION HA DISMINUIDO A "+diversion);
 }
