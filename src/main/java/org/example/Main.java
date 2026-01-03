@@ -1,7 +1,7 @@
 import java.util.Scanner;
 static int saciedad=6;
 static int energia=6;
-static int diversion=1;
+static int diversion=6;
 public static void main(String[] args) {
 
     System.out.println("HOLA GIT");
@@ -69,7 +69,7 @@ if(saciedad==0||energia==0||diversion==0){
 
 private static void  Comer(){
     if (energia<10){
-        energia=energia+5;
+        energia=energia+3;
             if (energia>10){
                 energia=10;
             }
